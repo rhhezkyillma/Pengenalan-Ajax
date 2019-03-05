@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Register</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+   <script>
+        $.getJSON("http://172.16.10.58:3030/bukutamu",function(data){
+            $.each(data, function(key, val){
+                    var html  = "<tr><td>"+ val.id + "</td><td>" + val.nama + "</td><td> " + val.email + "</td><td>" + val.alamat + "</td><td>" + val.jeniskelamin +"</td></tr>";
+                    $('#tabelbody').append(html);
+                });
+        });
+   
+  </script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Data Table</h2>           
+  <table class="table">
+    <thead>
+      <tr>
+        <th id="no">No</th>
+        <th id="nama">Nama</th>
+        <th id="email">Email</th>
+        <th id="alamat">Alamat</th>
+        <th id="jeniskelamin">Jenis Kelamin</th>
+      
+      </tr>
+    </thead>
+    <tbody id="tabelbody">
+    
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
